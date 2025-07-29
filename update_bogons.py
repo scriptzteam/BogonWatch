@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 import logging
-import sys
 import os
-from pathlib import Path
+import sys
+import urllib.request
 
-import requests
 
 # Configure logging
 logging.basicConfig(
@@ -13,68 +12,61 @@ logging.basicConfig(
     stream=sys.stdout
 )
 
-def download_file(url: str, dest: Path, chunk_size: int = 8192, timeout: int = 30) -> bool:
-    """
-    Download a file from a URL using HTTP streaming and save it locally.
-    :param url: HTTP(S) URL to download from
-    :param dest: Local file path (including filename) where to save content
-    :param chunk_size: Size of each read chunk in bytes (default: 8 KB)
-    :param timeout: Timeout in seconds for the HTTP request
-    :returns: True if download succeeded and file non-empty; False otherwise
-    """
+
+def download_file(url: str, filename: str) -> bool:
+    '''
+    Download a file from a URL and save it locally
+    :param url: URL to download from
+    :param filename: Local filename to save as
+    '''
     try:
-        logging.info(f'Starting download: {url}')
-        response = requests.get(url, stream=True, timeout=timeout, headers={
-            'User-Agent': 'Mozilla/5.0 (compatible; BogonWatch/1.0)'
-        })
-        response.raise_for_status()
-
-        dest.parent.mkdir(parents=True, exist_ok=True)
-        total_bytes = 0
-
-        with dest.open('wb') as fp:
-            for chunk in response.iter_content(chunk_size=chunk_size):
-                if chunk:  # skip keep-alive chunks
-                    fp.write(chunk)
-                    total_bytes += len(chunk)
-
-        if total_bytes > 0:
-            logging.info(f'Download successful: wrote {total_bytes} bytes to {dest}')
+        logging.info(f'Attempting to download {url}')
+        req = urllib.request.Request(
+            url,
+            headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+        )
+        with urllib.request.urlopen(req) as response:
+            content = response.read().decode('utf-8')
+            
+        logging.info(f'Writing content to {filename}')
+        with open(filename, 'w') as f:
+            f.write(content)
+            
+        if os.path.exists(filename):
+            size = os.path.getsize(filename)
+            logging.info(f'Successfully wrote {size} bytes to {filename}')
             return True
         else:
-            logging.error(f'Download failed: {dest} is empty')
+            logging.error(f'File {filename} was not created')
             return False
-
-    except requests.exceptions.RequestException as exc:
-        logging.error(f'Error downloading {url}: {exc}')
+            
+    except Exception as e:
+        logging.error(f'Failed to download {url}: {str(e)}')
         return False
 
-def main():
-    """
-    Main entry point: iterate through source URLs and download each file.
-    Exits with status 1 on any failure.
-    """
+
+def main() -> None:
+    '''Main entry point for the script'''
     sources = {
         'bogons_ipv4.txt': 'https://team-cymru.org/Services/Bogons/fullbogons-ipv4.txt',
-        'bogons_ipv6.txt': 'https://team-cymru.org/Services/Bogons/fullbogons-ipv6.txt',
+        'bogons_ipv6.txt': 'https://team-cymru.org/Services/Bogons/fullbogons-ipv6.txt'
     }
 
-    all_success = True
-
+    success = True
     for filename, url in sources.items():
-        dest = Path(filename)
         logging.info(f'Processing {filename}')
-        if not download_file(url, dest):
-            all_success = False
-            logging.error(f'Failed to download {filename}')
+        if not download_file(url, filename):
+            success = False
+            logging.error(f'Failed to process {filename}')
         else:
-            logging.info(f'Successfully downloaded {filename}')
+            logging.info(f'Successfully processed {filename}')
 
-    if not all_success:
-        logging.error('One or more downloads failed')
+    if not success:
+        logging.error('Script failed to complete successfully')
         sys.exit(1)
     else:
-        logging.info('All files downloaded successfully')
+        logging.info('Script completed successfully')
+
 
 if __name__ == '__main__':
-    main()
+    main() 
