@@ -1,0 +1,36 @@
+name: Update Bogon Lists
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # Run every 4 hours
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Download latest bogon lists
+        run: python update_bogons.py
+      
+      - name: Force add and commit
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add -f bogons_ipv4.txt bogons_ipv6.txt
+          git status
+          if git status --porcelain | grep -q '^?? \|^A  \|^M  '; then
+            echo "Changes detected, committing..."
+            git commit -m "Update bogon lists [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi 
