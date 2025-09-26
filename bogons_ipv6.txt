@@ -1,4 +1,4 @@
-# last updated 1758848101 (Fri Sep 26 00:55:01 2025 GMT)
+# last updated 1758862501 (Fri Sep 26 04:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -145405,8 +145405,7 @@
 2804:70ae::/31
 2804:70b1::/32
 2804:70b2::/31
-2804:70b5::/32
-2804:70b6::/31
+2804:70b4::/30
 2804:70b9::/32
 2804:70ba::/31
 2804:70bd::/32
