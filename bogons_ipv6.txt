@@ -1,4 +1,4 @@
-# last updated 1759668902 (Sun Oct  5 12:55:02 2025 GMT)
+# last updated 1759683301 (Sun Oct  5 16:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -37197,7 +37197,12 @@
 2001:df6:2c88::/45
 2001:df6:2c90::/44
 2001:df6:2ca0::/43
-2001:df6:2cc0::/42
+2001:df6:2cc1::/48
+2001:df6:2cc2::/47
+2001:df6:2cc4::/46
+2001:df6:2cc8::/45
+2001:df6:2cd0::/44
+2001:df6:2ce0::/43
 2001:df6:2d01::/48
 2001:df6:2d02::/47
 2001:df6:2d04::/46
