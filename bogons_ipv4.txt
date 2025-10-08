@@ -1,4 +1,4 @@
-# last updated 1759913701 (Wed Oct  8 08:55:01 2025 GMT)
+# last updated 1759928101 (Wed Oct  8 12:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 0.0.0.0/8
 10.0.0.0/8
