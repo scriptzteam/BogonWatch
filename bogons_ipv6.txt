@@ -1,4 +1,4 @@
-# last updated 1761627301 (Tue Oct 28 04:55:01 2025 GMT)
+# last updated 1761641701 (Tue Oct 28 08:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -152866,7 +152866,12 @@
 2c0f:3d88::/29
 2c0f:3d90::/28
 2c0f:3da0::/27
-2c0f:3dc0::/26
+2c0f:3dc1::/32
+2c0f:3dc2::/31
+2c0f:3dc4::/30
+2c0f:3dc8::/29
+2c0f:3dd0::/28
+2c0f:3de0::/27
 2c0f:3e01::/32
 2c0f:3e02::/31
 2c0f:3e04::/30
@@ -154357,7 +154362,12 @@
 2c0f:7c88::/29
 2c0f:7c90::/28
 2c0f:7ca0::/27
-2c0f:7cc0::/26
+2c0f:7cc1::/32
+2c0f:7cc2::/31
+2c0f:7cc4::/30
+2c0f:7cc8::/29
+2c0f:7cd0::/28
+2c0f:7ce0::/27
 2c0f:7d01::/32
 2c0f:7d02::/31
 2c0f:7d04::/30
