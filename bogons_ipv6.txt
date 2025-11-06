@@ -1,4 +1,4 @@
-# last updated 1762390501 (Thu Nov  6 00:55:01 2025 GMT)
+# last updated 1762404901 (Thu Nov  6 04:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -131547,7 +131547,6 @@
 2803:e730::/28
 2803:e770::/28
 2803:e7b0::/28
-2803:e7d0::/28
 2803:e7f0::/28
 2803:e830::/28
 2803:e870::/28
