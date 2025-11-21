@@ -1,4 +1,4 @@
-# last updated 1763657702 (Thu Nov 20 16:55:02 2025 GMT)
+# last updated 1763686501 (Fri Nov 21 00:55:01 2025 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -1016,7 +1016,6 @@
 2001:67c:8000::/33
 2001:67d::/32
 2001:67e::/31
-2001:7f8:fc::/48
 2001:7f8:ff::/48
 2001:7f8:100::/48
 2001:7f8:135::/48
