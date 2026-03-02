@@ -1,4 +1,4 @@
-# last updated 1772384101 (Sun Mar  1 16:55:01 2026 GMT)
+# last updated 1772412901 (Mon Mar  2 00:55:01 2026 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -1011,6 +1011,7 @@
 2001:678::/48
 2001:678:f8::/46
 2001:678:14c::/46
+2001:678:6cc::/46
 2001:678:a08::/46
 2001:678:11c0::/42
 2001:678:1200::/39
