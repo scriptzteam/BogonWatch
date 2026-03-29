@@ -1,4 +1,4 @@
-# last updated 1774716901 (Sat Mar 28 16:55:01 2026 GMT)
+# last updated 1774745701 (Sun Mar 29 00:55:01 2026 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -97621,7 +97621,6 @@
 2602:f000::/22
 2602:f400::/28
 2602:f410::/30
-2602:f414::/32
 2602:f79c:1000::/36
 2602:f79c:2000::/35
 2602:f79c:4000::/34
