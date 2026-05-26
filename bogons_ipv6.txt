@@ -1,4 +1,4 @@
-# last updated 1779742501 (Mon May 25 20:55:01 2026 GMT)
+# last updated 1779756901 (Tue May 26 00:55:01 2026 GMT)
 # Know your network!  Please rigorously test all filters!
 ::/10
 40::/11
@@ -153063,6 +153063,7 @@
 2a0b:5040::/26
 2a0b:d980::/26
 2a0b:e880::/26
+2a0c:3480::/26
 2a0c:5046::/31
 2a0c:5048::/29
 2a0c:5050::/28
